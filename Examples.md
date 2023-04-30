@@ -2,10 +2,11 @@
 # Examples
 
 ## Natives
-As before, but now they are in the **Natives** class, found in the *CitizenFX.FiveM.Native* or *CitizenFX.Server.Native* namespace
+As before, but now they are in the **Natives** class, found in the *CitizenFX.FiveM.Native*, *CitizenFX.Server.Native*, or *CitizenFX.Shared.Native* namespace
 ```csharp
 using CitizenFX.FiveM.Native; // client
 using CitizenFX.Server.Native; // server
+using CitizenFX.Shared.Native; // shared (for shared libraries)
 ...
 int health = Natives.GetEntityHealth(ped);
 int health = Natives.Call<int>(Hash.GET_ENTITY_HEALTH, ped);
@@ -52,11 +53,11 @@ Exports.Local["ResourceName", "ExportName"](...); // call from anywhere
 
 ## Register Events and restrict their accessibility
 EventHandlers can now use the `Binding` overload to determine who can call this handler/export. The options are:
-1. **LOCAL** (default): client only accepts client events, server only server events
-2. **REMOTE**: client only accepts server events, server only client events
-3. **ALL**: accept events from both client and server
+1. **Local** (default): client only accepts client events, server only server events
+2. **Remote**: client only accepts server events, server only client events
+3. **All**: accept events from both client and server
 ```csharp
-[EventHandler("EventName", Binding.LOCAL)]
+[EventHandler("EventName", Binding.Local)]
 private string EventFunction()
 {
 	return "Remote can't touch this, ...";
