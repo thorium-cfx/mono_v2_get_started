@@ -4,7 +4,7 @@ This guide expects that the reader already knows how to work with Visual Studio 
 
 1. Create the solution and projects
 	* CLI, automatic:  
-		```
+		```cmd
 		dotnet new sln -o MySolution
 		chdir MySolution
 		dotnet new classlib --target-framework-override net462 -o Client
@@ -23,7 +23,7 @@ This guide expects that the reader already knows how to work with Visual Studio 
 	* Server:  
 		**CitizenFX.Server.dll** and **CitizenFX.Core.dll** from your server files `<your server files>\citizen\clr2\lib\mono\4.5\v2\`.
 4. Replace the contents of both **Class.cs** files and preferably rename them as well
-	```
+	```csharp
 	using CitizenFX.Core;
 	//using CitizenFX.FiveM; // FiveM game related types (client only)
 	//using CitizenFX.FiveM.Native; // FiveM natives (client only)
