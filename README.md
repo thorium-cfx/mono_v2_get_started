@@ -40,7 +40,7 @@ v2 will allow C# programmers to finally get back on track with the latest native
 This does come with some extra work for you as you'll need to copy the latest **CitizenFX.FiveM.Native.dll** and supply it with your resource. Doing this will add backwards compatibility to your C# resource, allowing them to always find the native methods they were compiled against. Failing to do so will result in `MissingMethodException`s in the future, rendering your resource broken.
 
 # Hello fast Coroutines, bye bye slow Tasks
-Task/Task<T> are used for the default .NET scheduler and its performance is well... really bad. It's now replaced with a custom scheduler that you can use by using Coroutine/Coroutine<T>, it's as simple as replacing Task with Coroutine and you are making use of it!
+Task/Task\<T\> are used for the default .NET scheduler and its performance is well... really bad. It's now replaced with a custom scheduler that you can use by using Coroutine/Coroutine\<T\>, it's as simple as replacing Task with Coroutine and you are making use of it!
 
 \* As a side note; although its scheduler is no longer restricted, we do not offer any support for using Task in v2 and may be prone to deactivation if required.
 
