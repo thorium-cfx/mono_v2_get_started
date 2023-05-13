@@ -85,6 +85,26 @@ void EventFunction2(float f) { }
 int EventFunction3WithReturn(float f) { }
 ```
 
+## SourceAttribute
+Previously `[FromSource]`, now simplified to `[Source]`. It also allows clients to know if the event was called from the server or not. Also note that these parameters don't influence the parameter order when invoked as an event, so if an exception like a `CastException` occurs solve them as if any `[Source]` parameter is absent.
+```csharp
+// Server
+[EventHandler("EventName", Binding.All)]
+private string EventFunction([Source] Player source) { }
+
+// Client
+[EventHandler("EventName", Binding.All)]
+private string EventFunction([Source] bool isServer) { }
+
+// Shared
+[EventHandler("EventName", Binding.All)]
+private string EventFunction([Source] Remote remote) { }
+
+[EventHandler("EventName", Binding.All)]
+private string EventFunction([Source] bool isRemote) { }
+```
+
+
 ## ExportAttribute
 Previously non-existent, can be used as follows:
 ```csharp
