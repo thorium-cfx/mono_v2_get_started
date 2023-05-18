@@ -7,12 +7,13 @@ This guide expects that the reader already knows how to work with Visual Studio 
 		```cmd
 		dotnet new sln -o MySolution
 		chdir MySolution
-		dotnet new classlib --target-framework-override net462 -o Client
-		dotnet new classlib --target-framework-override net462 -o Server
+		dotnet new classlib --target-framework-override net452 -o Client
+		dotnet new classlib --target-framework-override net452 -o Server
 		dotnet sln add Client Server
 		xcopy %localappdata%\FiveM\FiveM.app\citizen\clr2\lib\mono\4.5\v2\Native\CitizenFX.FiveM.Native.dll Client\bin\ /Y /I
 		pause
 		```
+		\* Higher Framework versions are possible, but Visual Studio may complain on some systems.
 	* Manual:  
 		Create a new C# **Class Library (.NET Framework)** and add another project in the solution for the missing server or client, also copy **Native/CitizenFX.FiveM.Native.dll** with your client project.
 2. Go into your \<MySolution\> directory and open the solution
