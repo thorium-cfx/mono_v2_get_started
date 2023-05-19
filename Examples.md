@@ -115,6 +115,24 @@ private string ExportE2()
 }
 ```
 
+## EnableOnLoadAttribute
+Want to make use of the BaseScript functionalities but without activating it on startup? Add `[EnableOnLoad(false)]` to the class and it won't be automatically activated.
+```csharp
+[EnableOnLoad(false)]
+class MyScript : BaseScript
+{ }
+
+...
+
+MyScript myScript = new MyScript();
+
+void SomeFunctionToActivateMyScript()
+{
+	BaseScript.RegisterScript(myScript);
+}
+```
+
+
 ## CString
 A UTF8 encoded string dedicated for interop. Do not use this as a replacement to C#'s `string`, if at all, better use it as a storage type for repeated interop usage.
 ```csharp
