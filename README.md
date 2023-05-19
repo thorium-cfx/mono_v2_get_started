@@ -17,7 +17,7 @@ Straight to the action? [set up your C# solution and resource](Setup.md) or [see
 1. **Interop**: all interop between C# and C++ is now done through thunks, a simple intermediate call
 	1. Events and Exports are at least **84 times** faster
 	2. String recoding is **43~47%** faster, precoding strings is also an option
-	3. No unnecessary recoding on string that aren't used
+	3. No unnecessary recoding on strings that aren't used
 	4. Custom native invocation can expect speed increases by **10-folds**
 2. **Runtime enter/exit cost**: we now invoke C# and C++ code (almost) directly, no more IPC
 3. **Custom ~~task~~ coroutine scheduler**: no longer uses the .NET scheduler, which brought quite some overhead.
