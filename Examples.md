@@ -69,7 +69,7 @@ Events no longer pass `List<object>` objects, they are now pure arrays `object[]
 ```csharp
 Constructor()
 {
-	// Add
+	// Add as Binding.Local
 	EventHandlers["Function"] += Func.Create<int, object[]>(EventFunction1);
 	EventHandlers["Function"].Add(Func.Create<float>(EventFunction2));
 	EventHandlers["Function"] += Func.Create<float, int>(EventFunction3WithReturn);
@@ -78,6 +78,12 @@ Constructor()
 	EventHandlers["Function"] -= Func.Create<int, object[]>(EventFunction1);
 	EventHandlers["Function"].Remove(Func.Create<float>(EventFunction2));
 	EventHandlers["Function"] -= Func.Create<float, int>(EventFunction3WithReturn);
+	
+	// Register from anywhere
+	Event.RegisterEventHandler("Function", Func.Create<int, object[]>(EventFunction1), Binding.Local);
+	
+	// Unregister from anywhere
+	Event.UnregisterEventHandler("Function", Func.Create<int, object[]>(EventFunction1));
 }
 
 void EventFunction1(int i, object[] values) { }
