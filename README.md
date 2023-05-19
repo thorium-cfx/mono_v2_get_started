@@ -5,9 +5,9 @@ Straight to the action? [set up your C# solution and resource](Setup.md) or [see
 ## Major differences to v1
 1. [Performance](#performance)
 2. [Dividing CitizenFX.Core.dll into multiple libraries](#dividing-citizenfxcoredll-into-multiple-libraries)
-2. [Native updates and compatibility](#dividing-citizenfxcoredll-into-multiple-libraries)
-3. [Hello fast Coroutines, bye bye slow Tasks](#native-updates-and-compatibility)
-4. [Tick-less, removing unnecessary per-frame overhead](#tick-less-removing-unnecessary-per-frame-overhead)
+3. [Native updates and compatibility](#dividing-citizenfxcoredll-into-multiple-libraries)
+4. [Hello fast Coroutines, bye bye slow Tasks](#native-updates-and-compatibility)
+5. [Tick-less, removing unnecessary per-frame overhead](#tick-less-removing-unnecessary-per-frame-overhead)
 
 # Performance
 | ![](https://user-images.githubusercontent.com/102315529/233750229-141384dd-d36b-4399-b423-fde740a1e542.png) |
@@ -19,7 +19,7 @@ Straight to the action? [set up your C# solution and resource](Setup.md) or [see
 	2. String recoding is **43~47%** faster, precoding strings is also an option
 	3. No unnecessary recoding on strings that aren't used
 	4. Custom native invocation can expect speed increases by **10-folds**
-2. **Runtime enter/exit cost**: we now invoke C# and C++ code (almost) directly, no more IPC
+2. **Runtime enter/exit cost**: the default 0.04~0.06ms overhead cost in v1 has been eliminated, enjoy your 0.00ms.
 3. **Custom ~~task~~ coroutine scheduler**: no longer uses the .NET scheduler, which brought quite some overhead.
 4. **Natives**:
 	1. Client can expect speed increases of **40~84%** and higher
