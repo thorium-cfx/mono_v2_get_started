@@ -7,6 +7,7 @@ Straight to the action? [set up your C# solution and resource](Setup.md) or [see
 2. [Dividing CitizenFX.Core.dll into multiple libraries](#dividing-citizenfxcoredll-into-multiple-libraries)
 2. [Native updates and compatibility](#dividing-citizenfxcoredll-into-multiple-libraries)
 3. [Hello fast Coroutines, bye bye slow Tasks](#native-updates-and-compatibility)
+4. [Tick-less, removing unnecessary per-frame overhead](#tick-less-removing-unnecessary-per-frame-overhead)
 
 # Performance
 | ![](https://user-images.githubusercontent.com/102315529/233750229-141384dd-d36b-4399-b423-fde740a1e542.png) |
@@ -43,5 +44,10 @@ This does come with some extra work for you as you'll need to copy the latest **
 Task/Task\<T\> are used for the default .NET scheduler and its performance is well... really bad. It's now replaced with a custom scheduler that you can use by using Coroutine/Coroutine\<T\>, it's as simple as replacing Task with Coroutine and you are making use of it!
 
 \* As a side note; although its scheduler is no longer restricted, we do not offer any support for using Task in v2 and may be prone to deactivation if required.
+
+# Tick-less, removing unnecessary per-frame overhead
+v2 got updated to run on the core scheduler, removing any runtime switching cost (that were left) when there's no `Tick` methods scheduled in your resource.
+
+&nbsp;
 
 Now go and [set up your C# solution and resource!](Setup.md)
