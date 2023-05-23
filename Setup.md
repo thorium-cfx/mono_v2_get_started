@@ -39,7 +39,7 @@ This guide expects that the reader already knows how to work with Visual Studio 
 		}
 	}
 	```
-5. Now you should have a solution with 2 projects, targeting .NET Framework 4.6.2, and have all references correctly set up.
+5. Now you should have a solution with 2 projects, targeting .NET Framework 4.5.2 (or higher), and have all references correctly set up.
 6. Edit your **fxmanifest.lua** file and add the following to it:  
 	`mono_rt2 'Prerelease expiring 2023-06-30. See https://aka.cfx.re/mono-rt2-preview for info.'`  
 	\* *rt2 stands for runtime 2, as to not confuse it with a potential v2 of mono itself.*
