@@ -1,0 +1,54 @@
+name: Feature Request
+description: Need the mono v2-runtime to support something?
+labels: ["enhancement", "triage"]
+assignees:
+  - 
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this feature request.
+        Only feature request are accepted, so please refrain yourself from submitting any other requests, including support requests.
+        
+        \* Requests that fail to deliver the proper information may be closed without any feedback.
+  
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: |
+        Please be clear and concise and make sure you focus on the **X** in [XY Problems](https://xyproblem.info/)
+      placeholder: 
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: importancy
+    attributes:
+      label: Importancy
+      description: |
+        To your knowledge how would you describe the importancy of this feature?
+      options:
+        - Unknown
+        - Nice extra
+        - Quality of Life (QoL)
+        - Overal quality to the runtime
+        - Prerequisite for my project
+        - Fatal (we can't use the runtime without)
+  
+  - type: textarea
+    id: implementation
+    attributes:
+      label: API and/or potential implementation
+      description: |
+        Tell us what the user interface will look like and maybe a potential implementation
+    validations:
+      required: true
+  
+  - type: textarea
+    id: misc
+    attributes:
+      label: Extra
+      description: |
+        Anything else you'd like to add?
