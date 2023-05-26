@@ -121,6 +121,38 @@ private string ExportE2()
 }
 ```
 
+## Disable & Enable BaseScripts
+BaseScript's ticks, events, exports, and commands can all be disabled and enabled with ease, allowing you to create and cache something like game modes or anything else you'd like to use it for
+```csharp
+class MyScript
+{
+	[Tick]
+	private async Coroutine MyTick()
+	{
+		// tick that'll not be rescheduled when disabled
+	}
+	
+	[Tick]
+	private async Coroutine MyTickwhileLooped()
+	{
+		while (IsEnabled) // run as long as this script is enabled
+		{
+			// my things
+		}
+		
+		// only when we get here will this tick be disabled
+	}
+}
+
+BaseScript script = new MyScript();
+
+script.Disable();
+// script is inactive, ticks will come to a halt when they exit their scope
+
+script.Enable();
+// script is activated, all events, exports, and commands are enabled, ticks are rescheduled or continued
+```
+
 ## EnableOnLoadAttribute
 Want to make use of the BaseScript functionalities but without activating it on startup? Add `[EnableOnLoad(false)]` to the class and it won't be automatically activated.
 ```csharp
