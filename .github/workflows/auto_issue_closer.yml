@@ -14,7 +14,7 @@ jobs:
         with:
           days-before-issue-stale: 30
           days-before-issue-close: 14
-          exempt-issue-labels: "bug,important,mandatory,critical,fatal"
+          exempt-issue-labels: "bug,important,mandatory,critical,fatal,💀 crash"
           stale-issue-label: "stale"
           stale-issue-message: "This issue is marked as stale because it has been open for 30 days without any activity."
           close-issue-message: "This issue was closed because it has been inactive for 14 days since it was marked as stale."

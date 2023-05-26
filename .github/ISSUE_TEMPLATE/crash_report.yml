@@ -1,0 +1,55 @@
+name: Crash Report
+description: "File a crash report to the mono v2-runtime, result is simple: you crashed"
+labels: ["💀 crash", "triage"]
+assignees:
+  - 
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this crash report.
+        Only crash related issues are accepted, so please refrain yourself from submitting any other requests, including support requests.
+        
+        For issues, like exceptions, that don't crash the client or runtime use the [Bug Report](https://github.com/thorium-cfx/mono_v2_get_started/issues/new?assignees=&labels=bug%2Ctriage&projects=&template=bug_report.yml) template.
+        
+        \* Issue reports that fail to deliver the proper information may be closed without any feedback.
+  
+  - type: textarea
+    id: result
+    attributes:
+      label: Crash results
+      description: |
+        What are the results of the crash? e.g.: log files, dumps, errors
+      placeholder: 
+    validations:
+      required: true
+  
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: |
+        This is important to us. Fill in the exact steps you took, test and remove any steps that aren't relevant.
+      placeholder: |
+        1. 
+        2. 
+        3. 
+        4. 
+      render: bash
+    validations:
+      required: true
+  
+  - type: input
+    id: build-number
+    attributes:
+      label: Specific version
+      description: Please fill in the build number on which this issue occured
+      placeholder: FiveM/RedM 6464, Server 6464 windows/linux
+  
+  - type: textarea
+    id: misc
+    attributes:
+      label: Extra
+      description: |
+        Anything else you'd like to add?

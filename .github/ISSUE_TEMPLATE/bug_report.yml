@@ -1,5 +1,5 @@
 name: Bug Report
-description: File a bug report to the mono v2-runtime
+description: File a bug report to the mono v2-runtime, excluding crashes
 labels: ["bug", "triage"]
 assignees:
   - 
@@ -10,6 +10,8 @@ body:
       value: |
         Thank you for taking the time to fill out this bug report.
         Only bug related issues are accepted, so please refrain yourself from submitting any other requests, including support requests.
+        
+        For crashes that terminate the client or runtime use the [Crash Report](https://github.com/thorium-cfx/mono_v2_get_started/issues/new?assignees=&labels=💀+crash%2Ctriage&projects=&template=crash_report.yml) template.
         
         \* Issue reports that fail to deliver the proper information may be closed without any feedback.
   
@@ -67,7 +69,7 @@ body:
     attributes:
       label: Specific version
       description: Please fill in the build number on which this issue occured
-      placeholder: FiveM v1.0.0.5817, Server v1.0.0.5817
+      placeholder: FiveM/RedM 6464, Server 6464 windows/linux
   
   - type: textarea
     id: misc
