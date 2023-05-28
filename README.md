@@ -18,12 +18,12 @@ Straight to the action? [set up your C# solution and resource](Setup.md) or [see
 	1. Events and Exports are at least **84 times** faster
 	2. String recoding is **43~47%** faster, precoding strings is also an option
 	3. No unnecessary recoding on strings that aren't used
-	4. Custom native invocation can expect speed increases by **10-folds**
 2. **Runtime enter/exit cost**: the default 0.04~0.06ms overhead cost in v1 has been eliminated, enjoy your 0.00ms.
 3. **Custom ~~task~~ coroutine scheduler**: no longer uses the .NET scheduler, which brought quite some overhead.
 4. **Natives**:
 	1. Client can expect speed increases of **40~84%** and higher
 	2. Servers on Windows have a **~10 times** speed increase (WSL **~160 times**)
+	3. Custom native invocation can expect speed increases by **10-folds**
 
 # Dividing CitizenFX.Core.dll into multiple libraries
 In v1 everything was included in **CitizenFX.Core.dll**, v2 comes with separated libraries 
