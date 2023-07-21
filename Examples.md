@@ -54,8 +54,11 @@ Exports.Local["ResourceName", "ExportName"](...); // call from anywhere
 ## Register Events and restrict their accessibility
 EventHandlers can now use the `Binding` overload to determine who can call this handler/export. The options are:
 1. **Local** (default): client only accepts client events, server only server events
-2. **Remote**: client only accepts server events, server only client events
+2. **Remote**: client only accepts server events, server only accepts client events
 3. **All**: accept events from both client and server
+
+Mind you, unlike the v1 runtime; v2's `EventHandlers["Function"] += ` is an indirect call to `EventHandlers["Function"].Add(DynFunc, Binding.Local)`, local binding is the default for security reasons. You should call `EventHandlers["Function"].Add(DynFunc, <your desired binding>)` to override and/or make your intent clear on who may call the given event listener.
+
 ```csharp
 [EventHandler("EventName", Binding.Local)]
 private string EventFunction()
@@ -79,6 +82,10 @@ Constructor()
 	EventHandlers["Function"].Remove(Func.Create<float>(EventFunction2));
 	EventHandlers["Function"] -= Func.Create<float, int>(EventFunction3WithReturn);
 	
+	// Add as Binding.Remote or Binding.All
+	EventHandlers["Function"].Add(Func.Create<float>(EventFunction2), Binding.Remote);
+	EventHandlers["Function"].Add(Func.Create<float>(EventFunction2), Binding.All);
+
 	// Register from anywhere
 	Event.RegisterEventHandler("Function", Func.Create<int, object[]>(EventFunction1), Binding.Local);
 	
