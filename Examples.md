@@ -57,7 +57,7 @@ EventHandlers can now use the `Binding` overload to determine who can call this 
 2. **Remote**: client only accepts server events, server only accepts client events
 3. **All**: accept events from both client and server
 
-Mind you, unlike the v1 runtime; v2's `EventHandlers["Function"] += ` is an indirect call to `EventHandlers["Function"].Add(DynFunc, Binding.Local)`, local binding is the default for security reasons. You should call `EventHandlers["Function"].Add(DynFunc, <your desired binding>)` to override and/or make your intent clear on who may call the given event listener.
+Mind you, unlike the v1 runtime; v2's `EventHandlers["EventName"] += ` is an indirect call to `EventHandlers["EventName"].Add(DynFunc, Binding.Local)`, local binding is the default for security reasons. You should call `EventHandlers["EventName"].Add(DynFunc, <your desired binding>)` to override and/or make your intent clear on who may call the given event listener.
 
 ```csharp
 [EventHandler("EventName", Binding.Local)]
@@ -73,24 +73,24 @@ Events no longer pass `List<object>` objects, they are now pure arrays `object[]
 Constructor()
 {
 	// Add as Binding.Local
-	EventHandlers["Function"] += Func.Create<int, object[]>(EventFunction1);
-	EventHandlers["Function"].Add(Func.Create<float>(EventFunction2));
-	EventHandlers["Function"] += Func.Create<float, int>(EventFunction3WithReturn);
+	EventHandlers["EventName"] += Func.Create<int, object[]>(EventFunction1);
+	EventHandlers["EventName"].Add(Func.Create<float>(EventFunction2));
+	EventHandlers["EventName"] += Func.Create<float, int>(EventFunction3WithReturn);
 	
 	// Remove
-	EventHandlers["Function"] -= Func.Create<int, object[]>(EventFunction1);
-	EventHandlers["Function"].Remove(Func.Create<float>(EventFunction2));
-	EventHandlers["Function"] -= Func.Create<float, int>(EventFunction3WithReturn);
+	EventHandlers["EventName"] -= Func.Create<int, object[]>(EventFunction1);
+	EventHandlers["EventName"].Remove(Func.Create<float>(EventFunction2));
+	EventHandlers["EventName"] -= Func.Create<float, int>(EventFunction3WithReturn);
 	
 	// Add as Binding.Remote or Binding.All
-	EventHandlers["Function"].Add(Func.Create<float>(EventFunction2), Binding.Remote);
-	EventHandlers["Function"].Add(Func.Create<float>(EventFunction2), Binding.All);
+	EventHandlers["EventName"].Add(Func.Create<float>(EventFunction2), Binding.Remote);
+	EventHandlers["EventName"].Add(Func.Create<float>(EventFunction2), Binding.All);
 
 	// Register from anywhere
-	Event.RegisterEventHandler("Function", Func.Create<int, object[]>(EventFunction1), Binding.Local);
+	Event.RegisterEventHandler("EventName", Func.Create<int, object[]>(EventFunction1), Binding.Local);
 	
 	// Unregister from anywhere
-	Event.UnregisterEventHandler("Function", Func.Create<int, object[]>(EventFunction1));
+	Event.UnregisterEventHandler("EventName", Func.Create<int, object[]>(EventFunction1));
 }
 
 void EventFunction1(int i, object[] values) { }
