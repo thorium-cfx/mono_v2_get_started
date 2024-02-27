@@ -31,14 +31,15 @@ In v1 everything was included in **CitizenFX.Core.dll**, v2 comes with separated
 * **CitizenFX.Server.dll**: Server related types and natives
 * **CitizenFX.FiveM.dll**: FiveM (GTA V) related types and functionality
 * **CitizenFX.FiveM.Native.dll**: All natives for FiveM (GTA V), make a copy of this one
-* ~~**CitizenFX.RedM.dll**~~ and ~~**CitizenFX.RedM.Native.dll**~~: absent until natives are set up
+* **CitizenFX.RedM.dll** RedM (RDR 2) related types and functionality
+* **CitizenFX.RedM.Native.dll**: All natives for RedM (RDR 2), make a copy of this one
 
-[*Make sure to copy the latest **CitizenFX.FiveM.Native.dll** and supply it with your resource*](#native-updates-and-compatibility)
+[*Make sure to copy the latest **CitizenFX.FiveM.Native.dll** or **CitizenFX.RedM.dll** and supply it with your resource*](#native-updates-and-compatibility)
 
 # Native updates and compatibility
 v2 will allow C# programmers to finally get back on track with the latest natives, allowing them to use the most up-to-date types that are currently known. At some point we'll even be able to add and remove parameters to natives!
 
-This does come with some extra work for you as you'll need to copy the latest **CitizenFX.FiveM.Native.dll** and supply it with your resource. Doing this will add backwards compatibility to your C# resource, allowing them to always find the native methods they were compiled against. Failing to do so will result in `MissingMethodException`s in the future, rendering your resource broken.
+This does come with some extra work for you as you'll need to copy the latest **CitizenFX.FiveM.Native.dll** for FiveM or **CitizenFX.RedM.Native.dll** for RedM and supply it with your resource. Doing this will add backwards compatibility to your C# resource, allowing them to always find the native methods they were compiled against. Failing to do so will result in `MissingMethodException`s in the future, rendering your resource broken.
 
 # Hello fast Coroutines, bye bye slow Tasks
 Task/Task\<T\> are used for the default .NET scheduler and its performance is well... really bad. It's now replaced with a custom scheduler that you can use by using Coroutine/Coroutine\<T\>, it's as simple as replacing Task with Coroutine and you are making use of it!

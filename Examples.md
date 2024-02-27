@@ -2,9 +2,10 @@
 # Examples
 
 ## Natives
-As before, but now they are in the **Natives** class, found in the *CitizenFX.FiveM.Native*, *CitizenFX.Server.Native*, or *CitizenFX.Shared.Native* namespace
+As before, but now they are in the **Natives** class, found in the *CitizenFX.FiveM.Native*, *CitizenFX.RedM.Native*, *CitizenFX.Server.Native*, or *CitizenFX.Shared.Native* namespace
 ```csharp
-using CitizenFX.FiveM.Native; // client
+using CitizenFX.FiveM.Native; // client FiveM
+//using CitizenFX.RedM.Native; // client RedM
 using CitizenFX.Server.Native; // server
 using CitizenFX.Shared.Native; // shared (for shared libraries)
 ...
