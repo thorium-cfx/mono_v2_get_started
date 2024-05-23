@@ -1,6 +1,6 @@
 ⚠️ This environment is still in beta, crashes and future changes are to be expected ⚠️
 # Get started with FiveM's mono v2
-Straight to the action? [set up your C# solution and resource](Setup.md) or [see examples](Examples.md)
+Straight to the action? [set up your C# solution and resource](Setup.md) or [see examples](Examples/Overview.md)
 
 ## Major differences to v1
 1. [Performance](#performance)
@@ -8,6 +8,7 @@ Straight to the action? [set up your C# solution and resource](Setup.md) or [see
 3. [Native updates and compatibility](#dividing-citizenfxcoredll-into-multiple-libraries)
 4. [Hello fast Coroutines, bye bye slow Tasks](#native-updates-and-compatibility)
 5. [Tick-less, removing unnecessary per-frame overhead](#tick-less-removing-unnecessary-per-frame-overhead)
+6. [Implicit parameter conversion for events, exports, and callbacks](Examples/MsgPack.md)
 
 # Performance
 | ![](https://user-images.githubusercontent.com/102315529/233750229-141384dd-d36b-4399-b423-fde740a1e542.png) |
@@ -18,6 +19,7 @@ Straight to the action? [set up your C# solution and resource](Setup.md) or [see
 	1. Events and Exports are at least **84 times** faster
 	2. String recoding is **43~47%** faster, precoding strings is also an option
 	3. No unnecessary recoding on strings that aren't used
+	4. Implicit parameter conversion on events, exports, and callbacks, decreasing invocation time by another **3 times**.
 2. **Runtime enter/exit cost**: the default 0.04~0.06ms overhead cost in v1 has been eliminated, enjoy your 0.00ms.
 3. **Custom ~~task~~ coroutine scheduler**: no longer uses the .NET scheduler, which brought quite some overhead.
 4. **Natives**:

@@ -53,4 +53,4 @@ This guide expects that the reader already knows how to work with Visual Studio 
 	\* *this flag is considered temporary and will be removed at some point.*
 7. Add your copy of **CitizenFX.FiveM.Native.dll** or **CitizenFX.RedM.Native.dll** (depending on your game) to the resource and also add it in your **fxmanifest.lua** as well, just like any other dll dependency
 
-[Continue by looking into examples](Examples.md)
+[Continue by looking into examples](Examples/Overview.md)

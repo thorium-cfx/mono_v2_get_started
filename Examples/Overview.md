@@ -1,6 +1,22 @@
 ⚠️ This environment is still in beta, crashes and future changes are to be expected ⚠️
 # Examples
 
+General:
+1. [Natives](#natives)
+2. [Coroutines replace Tasks](#coroutines-replace-tasks)
+3. [Events callable from anywhere](#events-callable-from-anywhere)
+4. [Export invocation](export-invocation)
+5. [Register Events and restrict their accessibility](#register-events-and-restrict-their-accessibility)
+6. [SourceAttribute](#sourceattribute)
+7. [ExportAttribute](#exportattribute)
+8. [Disable & Enable BaseScripts](#disable--enable-basescripts)
+9. [EnableOnLoadAttribute](#enableonloadattribute)
+10. [CString](#cstring)
+
+Other:
+1. [Implicit parameter conversion with Events, Exports, and callbacks](MsgPack.md)
+
+
 ## Natives
 As before, but now they are in the **Natives** class, found in the *CitizenFX.FiveM.Native*, *CitizenFX.RedM.Native*, *CitizenFX.Server.Native*, or *CitizenFX.Shared.Native* namespace
 ```csharp
@@ -68,7 +84,7 @@ private string EventFunction()
 }
 ```
 
-### Extra ways to (un)register:  
+### Extra ways to (un)register:
 Events no longer pass `List<object>` objects, they are now pure arrays `object[]`.
 ```csharp
 Constructor()
@@ -180,7 +196,7 @@ void SomeFunctionToActivateMyScript()
 
 
 ## CString
-A UTF8 encoded string dedicated for interop. Do not use this as a replacement to C#'s `string`, if at all, better use it as a storage type for repeated interop usage.
+A UTF8 encoded string dedicated for interop. Do not use this as a replacement to C#'s `string`, if at all. However it is an interesting storage type for repeated interop usage of data that remains constant.
 ```csharp
 CString value = "This string is converted to a UTF8 string and doesn't need reconversion on interop!";
 ```
