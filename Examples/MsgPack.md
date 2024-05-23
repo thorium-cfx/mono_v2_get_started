@@ -70,7 +70,7 @@ Note: classes and structs that aren't marked as `MsgPackSerializable` will defau
 public class MyClass
 {
 	[Index(0)] public uint m_id = 0;
-	public string m_name = "My very long name" // Let's not send this to reduce packet size, client/server should already know who this is with the given id
+	public string m_name = "My very long name"; // Let's not send this to reduce packet size, client/server should already know who this is with the given id
 	[Index(1)] private float m_health = 300.0;
 }
 ```
@@ -107,7 +107,7 @@ Maps all public fields and properties, except those marked with the `Ignore` att
 public class MyClass
 {
 	public uint m_id = 0;
-	[Ignore] public string m_name = "Let's not send this to reduce packet size, client/server should already know who this is with the given id";
+	[Ignore] public string m_name = "My very long name"; // Let's not send this to reduce packet size, client/server should already know who this is with the given id
 	
 	private double m_health = 300.0;
 	public double Health
